@@ -15,10 +15,10 @@ class MyTank(pygame.sprite.Sprite):
     def __init__(self, playerNumber):
         pygame.sprite.Sprite.__init__(self)
         
-        # �������
+        # 玩家生命
         self.life = True
         
-        #���ڼ������   ̹�˵������ȼ�
+        #第几个玩家 坦克的三个等级
         if playerNumber == 1:
             self.tank_L0_image = pygame.image.load(tank_T1_0).convert_alpha()
             self.tank_L1_image = pygame.image.load(tank_T1_1).convert_alpha()
@@ -29,10 +29,10 @@ class MyTank(pygame.sprite.Sprite):
             self.tank_L2_image = pygame.image.load(tank_T2_2).convert_alpha()
         self.level = 0
         
-        # ��ʼ̹��Ϊ0��
+        #初始坦克为0级
         self.tank = self.tank_L0_image
         
-        # �˶��е�����ͼƬ
+        # 运动中的两种图片
         self.tank_R0 = self.tank.subsurface((0, 0),(48, 48))
         self.tank_R1 = self.tank.subsurface((48, 0),(48, 48))
         self.rect = self.tank_R0.get_rect()
@@ -41,7 +41,7 @@ class MyTank(pygame.sprite.Sprite):
         if playerNumber == 2:
             self.rect.left, self.rect.top = 3 + 24 * 16, 3 + 24 * 24 
         
-        # ̹���ٶ�   ̹�˷���   ̹������   �ӵ���ȴ
+        # ̹坦克速度 坦克方向  坦克生命 子弹冷却
         self.speed = 3
         self.dir_x, self.dir_y = 0, -1
         self.life = 3
@@ -50,7 +50,7 @@ class MyTank(pygame.sprite.Sprite):
         #self.bullet.rect.left, self.bullet.rect.right = 3 + 12 * 24, 3 + 24 * 24
     
     def shoot(self):
-        # �ӵ�
+        # 子弹
         self.bullet.life = True
         self.bullet.changeImage(self.dir_x, self.dir_y)
         
@@ -103,7 +103,7 @@ class MyTank(pygame.sprite.Sprite):
             self.tank = self.tank_L2_image
         
         
-    # ����True ��������ײ
+    # 返回true代表发生碰撞
     def moveUp(self, tankGroup, brickGroup, ironGroup):
         self.rect = self.rect.move(self.speed * 0, self.speed * -1)
         self.tank_R0 = self.tank.subsurface((0, 0),(48, 48))
