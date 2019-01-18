@@ -4,13 +4,13 @@ import random
 class Food(pygame.sprite.Sprite):
     def __init__(self):
         
-        self.food_boom    = pygame.image.load(r"..\image\food_boom.png").convert_alpha()
-        self.food_clock   = pygame.image.load(r"..\image\food_clock.png").convert_alpha()
-        self.food_gun     = pygame.image.load(r"..\image\food_gun.png").convert_alpha()
-        self.food_iron    = pygame.image.load(r"..\image\food_iron.png").convert_alpha()
-        self.food_protect = pygame.image.load(r"..\image\food_protect.png").convert_alpha()
-        self.food_star    = pygame.image.load(r"..\image\food_star.png").convert_alpha()
-        self.food_tank    = pygame.image.load(r"..\image\food_tank.png").convert_alpha()     
+        self.food_boom    = pygame.image.load(r"D:\Python\tank\TankWar\image\food_boom.png").convert_alpha()
+        self.food_clock   = pygame.image.load(r"D:\Python\tank\TankWar\image\food_clock.png").convert_alpha()
+        self.food_gun     = pygame.image.load(r"D:\Python\tank\TankWar\image\food_gun.png").convert_alpha()
+        self.food_iron    = pygame.image.load(r"D:\Python\tank\TankWar\image\food_iron.png").convert_alpha()
+        self.food_protect = pygame.image.load(r"D:\Python\tank\TankWar\image\food_protect.png").convert_alpha()
+        self.food_star    = pygame.image.load(r"D:\Python\tank\TankWar\image\food_star.png").convert_alpha()
+        self.food_tank    = pygame.image.load(r"D:\Python\tank\TankWar\image\food_tank.png").convert_alpha()     
         self.kind = random.choice([1, 2, 3, 4, 5, 6, 7])
         if self.kind == 1:
             self.image = self.food_boom

@@ -8,33 +8,33 @@ class EnemyTank(pygame.sprite.Sprite):
     def __init__(self, x = None, kind = None, isred = None):
         pygame.sprite.Sprite.__init__(self)
         
-        # Ì¹¿Ë³öÏÖÇ°¶¯»­ÊÇ·ñ²¥·Å
+        # Ì¹ï¿½Ë³ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ñ²¥·ï¿½
         self.flash = False
         self.times = 90
         
-        # ²ÎÊý:Ì¹¿ËÖÖÀà      
+        # ï¿½ï¿½ï¿½ï¿½:Ì¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½      
         self.kind = kind
         if not kind:
             self.kind = random.choice([1, 2, 3, 4])     
             
-        # Ñ¡ÔñµÐ¾üÌ¹¿ËÖÖÀà        
+        # Ñ¡ï¿½ï¿½Ð¾ï¿½Ì¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½        
         if self.kind == 1:
-            self.enemy_x_0 = pygame.image.load(r"..\image\enemy_1_0.png").convert_alpha()
-            self.enemy_x_3 = pygame.image.load(r"..\image\enemy_1_3.png").convert_alpha()
+            self.enemy_x_0 = pygame.image.load(r"D:\Python\tank\TankWar\image\enemy_1_0.png").convert_alpha()
+            self.enemy_x_3 = pygame.image.load(r"D:\Python\tank\TankWar\image\enemy_1_3.png").convert_alpha()
         if self.kind == 2:
-            self.enemy_x_0 = pygame.image.load(r"..\image\enemy_2_0.png").convert_alpha()
-            self.enemy_x_3 = pygame.image.load(r"..\image\enemy_2_3.png").convert_alpha()
+            self.enemy_x_0 = pygame.image.load(r"D:\Python\tank\TankWar\image\enemy_2_0.png").convert_alpha()
+            self.enemy_x_3 = pygame.image.load(r"D:\Python\tank\TankWar\image\enemy_2_3.png").convert_alpha()
         if self.kind == 3:
-            self.enemy_x_0 = pygame.image.load(r"..\image\enemy_3_1.png").convert_alpha()
-            self.enemy_x_3 = pygame.image.load(r"..\image\enemy_3_0.png").convert_alpha()
+            self.enemy_x_0 = pygame.image.load(r"D:\Python\tank\TankWar\image\enemy_3_1.png").convert_alpha()
+            self.enemy_x_3 = pygame.image.load(r"D:\Python\tank\TankWar\image\enemy_3_0.png").convert_alpha()
         if self.kind == 4:
-            self.enemy_x_0 = pygame.image.load(r"..\image\enemy_4_0.png").convert_alpha()
-            self.enemy_x_3 = pygame.image.load(r"..\image\enemy_4_3.png").convert_alpha()
-        self.enemy_3_0 = pygame.image.load(r"..\image\enemy_3_0.png").convert_alpha()
-        self.enemy_3_2 = pygame.image.load(r"..\image\enemy_3_2.png").convert_alpha()
+            self.enemy_x_0 = pygame.image.load(r"D:\Python\tank\TankWar\image\enemy_4_0.png").convert_alpha()
+            self.enemy_x_3 = pygame.image.load(r"D:\Python\tank\TankWar\image\enemy_4_3.png").convert_alpha()
+        self.enemy_3_0 = pygame.image.load(r"D:\Python\tank\TankWar\image\enemy_3_0.png").convert_alpha()
+        self.enemy_3_2 = pygame.image.load(r"D:\Python\tank\TankWar\image\enemy_3_2.png").convert_alpha()
         
         
-        # ²ÎÊý:ÊÇ·ñÐ¯´øÊ³Îï
+        # ï¿½ï¿½ï¿½ï¿½:ï¿½Ç·ï¿½Ð¯ï¿½ï¿½Ê³ï¿½ï¿½
         self.isred = isred
         if not None:
             self.isred = random.choice((True, False, False, False, False))
@@ -42,35 +42,35 @@ class EnemyTank(pygame.sprite.Sprite):
             self.tank = self.enemy_x_3
         else:
             self.tank = self.enemy_x_0
-        # ²ÎÊý:Ì¹¿ËÎ»ÖÃ
+        # ï¿½ï¿½ï¿½ï¿½:Ì¹ï¿½ï¿½Î»ï¿½ï¿½
         self.x = x
         if not self.x:
             self.x = random.choice([1, 2, 3])
         self.x -= 1
         
-        # ÔË¶¯ÖÐµÄÁ½ÖÖÍ¼Æ¬
+        # ï¿½Ë¶ï¿½ï¿½Ðµï¿½ï¿½ï¿½ï¿½ï¿½Í¼Æ¬
         self.tank_R0 = self.tank.subsurface(( 0, 48), (48, 48))
         self.tank_R1 = self.tank.subsurface((48, 48), (48, 48))
         self.rect = self.tank_R0.get_rect()
         self.rect.left, self.rect.top = 3 + self.x * 12 * 24, 3 + 0 * 24
         
-        # Ì¹¿ËËÙ¶È   ·½Ïò   ÉúÃü   ×Óµ¯ÉúÃü   ×Óµ¯ÑÓ³Ù
+        # Ì¹ï¿½ï¿½ï¿½Ù¶ï¿½   ï¿½ï¿½ï¿½ï¿½   ï¿½ï¿½ï¿½ï¿½   ï¿½Óµï¿½ï¿½ï¿½ï¿½ï¿½   ï¿½Óµï¿½ï¿½Ó³ï¿½
         self.speed = 1
         self.dir_x, self.dir_y = 0, 1
         self.life = 1
         self.bulletNotCooling = True
         self.bullet = bulletClass.Bullet()
-        # ÊÇ·ñ×²Ç½£¬×²Ç½Ôò¸Ä±ä·½Ïò
+        # ï¿½Ç·ï¿½×²Ç½ï¿½ï¿½×²Ç½ï¿½ï¿½Ä±ä·½ï¿½ï¿½
         self.dirChange = False
         
-        # Ã¿ÖÖÌ¹¿Ë²»Í¬µÄÊôÐÔ
+        # Ã¿ï¿½ï¿½Ì¹ï¿½Ë²ï¿½Í¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         if self.kind == 2:
             self.speed = 3
         if self.kind == 3:
             self.life = 3
         
     def shoot(self):
-        # ¸³Óè×Óµ¯ÉúÃü
+        # ï¿½ï¿½ï¿½ï¿½ï¿½Óµï¿½ï¿½ï¿½ï¿½ï¿½
         self.bullet.life = True
         self.bullet.changeImage(self.dir_x, self.dir_y)
         
@@ -104,7 +104,7 @@ class EnemyTank(pygame.sprite.Sprite):
             self.tank_R1 = self.tank.subsurface((48, 144),(48, 48))
         
         
-        # Åö×²µØÍ¼±ßÔµ
+        # ï¿½ï¿½×²ï¿½ï¿½Í¼ï¿½ï¿½Ôµ
         if self.rect.top < 3:
             self.rect = self.rect.move(self.speed * 0, self.speed * 1)
             self.dir_x, self.dir_y = random.choice(([0,1],[0,-1],[1,0],[-1,0]))
@@ -117,7 +117,7 @@ class EnemyTank(pygame.sprite.Sprite):
         elif self.rect.right > 630 - 3:
             self.rect = self.rect.move(self.speed * -1, self.speed * 0)
             self.dir_x, self.dir_y = random.choice(([0,1],[0,-1],[1,0],[-1,0]))
-        # Åö×²Ç½Ìå ºÍÌ¹¿Ë
+        # ï¿½ï¿½×²Ç½ï¿½ï¿½ ï¿½ï¿½Ì¹ï¿½ï¿½
         if pygame.sprite.spritecollide(self, brickGroup, False, None) \
             or pygame.sprite.spritecollide(self, ironGroup, False, None) \
             or pygame.sprite.spritecollide(self, tankGroup, False, None):

@@ -5,12 +5,12 @@ class Bullet(pygame.sprite.Sprite):
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
         
-        self.bullet_up = pygame.image.load(r"..\image\bullet_up.png")
-        self.bullet_down = pygame.image.load(r"..\image\bullet_down.png")
-        self.bullet_left = pygame.image.load(r"..\image\bullet_left.png")
-        self.bullet_right = pygame.image.load(r"..\image\bullet_right.png")
+        self.bullet_up = pygame.image.load(r"D:\Python\tank\TankWar\image\bullet_up.png")
+        self.bullet_down = pygame.image.load(r"D:\Python\tank\TankWar\image\bullet_down.png")
+        self.bullet_left = pygame.image.load(r"D:\Python\tank\TankWar\image\bullet_left.png")
+        self.bullet_right = pygame.image.load(r"D:\Python\tank\TankWar\image\bullet_right.png")
 
-        # ×Óµ¯·½Ïò   ËÙ¶È   ÉúÃü   ËéÊ¯
+        # ï¿½Óµï¿½ï¿½ï¿½ï¿½ï¿½   ï¿½Ù¶ï¿½   ï¿½ï¿½ï¿½ï¿½   ï¿½ï¿½Ê¯
         self.dir_x, self.dir_y = 0, 0
         self.speed  = 6
         self.life   = False
@@ -37,7 +37,7 @@ class Bullet(pygame.sprite.Sprite):
         self.rect = self.rect.move(self.speed * self.dir_x,
                                    self.speed * self.dir_y)
                 
-        # Åö×²µØÍ¼±ßÔµ
+        # ï¿½ï¿½×²ï¿½ï¿½Í¼ï¿½ï¿½Ôµ
         if self.rect.top < 3:
             self.life = False
         #    self.rect.left, self.rect.right = 3 + 12 * 24, 3 + 24 * 24
@@ -51,11 +51,11 @@ class Bullet(pygame.sprite.Sprite):
             self.life = False
         #    self.rect.left, self.rect.right = 3 + 12 * 24, 3 + 24 * 24
         
-        # Åö×² brickGroup
+        # ï¿½ï¿½×² brickGroup
         #if pygame.sprite.spritecollide(self, brickGroup, True, None):
         #    self.life = False
         #    moving = 0
-        # Åö×² ironGroup
+        # ï¿½ï¿½×² ironGroup
         #if self.strong:
         #    if pygame.sprite.spritecollide(self, ironGroup, True, None):
         #        self.life = False

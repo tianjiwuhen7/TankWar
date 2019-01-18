@@ -1,7 +1,7 @@
 import pygame
 
-brickImage          = r"..\image\brick.png"
-ironImage           = r"..\image\iron.png"
+brickImage          = r"D:\Python\tank\TankWar\image\brick.png"
+ironImage           = r"D:\Python\tank\TankWar\image\iron.png"
 
 class Brick(pygame.sprite.Sprite):
     def __init__(self):
